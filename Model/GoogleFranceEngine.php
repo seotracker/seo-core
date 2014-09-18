@@ -5,8 +5,8 @@ use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
 use SeoTracker\SeoCore\Interfaces\ScrapperInterface;
 use SeoTracker\SeoCore\Interfaces\SearchEngineInterface;
 use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
-
 use SeoTracker\SeoCore\Collection\WebsiteCollection;
+use SeoTracker\SeoCore\Exception\NotImplementedException;
 
 /**
  * This file is part of Seo-Core library of SeoTracker project
@@ -99,7 +99,7 @@ class GoogleFranceEngine implements SearchEngineInterface
      */
     public function getBacklinks(WebsiteInterface $website)
     {
-        throw new ImplementedException();
+        throw new NotImplementedException();
     }
 
     private function getWebsite($location)

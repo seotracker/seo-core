@@ -3,7 +3,6 @@ namespace SeoTracker\SeoCore\Model;
 
 use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
 use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
-use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * This file is part of Seo-Core library of SeoTracker project
@@ -31,7 +30,7 @@ class Website implements WebsiteInterface
 
     public function getTitle()
     {
-        return $this->crawler->getXPath('//title')->text();
+        return $this->title = $this->crawler->getXPath('//title')->text();
     }
 
     public function getMetas()
