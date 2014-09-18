@@ -11,12 +11,12 @@
 
 namespace SeoTracker\SeoCore\Model;
 
+use SeoTracker\SeoCore\Collection\WebsiteCollection;
+use SeoTracker\SeoCore\Exception\NotImplementedException;
 use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
 use SeoTracker\SeoCore\Interfaces\ScrapperInterface;
 use SeoTracker\SeoCore\Interfaces\SearchEngineInterface;
 use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
-use SeoTracker\SeoCore\Collection\WebsiteCollection;
-use SeoTracker\SeoCore\Exception\NotImplementedException;
 
 /**
  * This file is part of Seo-Core library of SeoTracker project

@@ -15,16 +15,22 @@ namespace SeoTracker\SeoCore\Interfaces;
  * This file is part of Seo-Core library of SeoTracker project
  *
  * @author Mickaël Andrieu <mickael.andrieu@hotmail.fr>
- *
  */
 interface ScrapperInterface
 {
     /**
-     * Get HTML content from an http(s) location
+     * Get the content given its http(s) location
      *
-     * @return String $htmlContent HTML content
+     * @param string $location Location url
+     *
+     * @return string Location content
      */
     public function get($location);
 
+    /**
+     * Adapter can be used
+     *
+     * @return boolean
+     */
     public function isOk();
 }

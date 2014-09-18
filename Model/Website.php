@@ -11,8 +11,8 @@
 
 namespace SeoTracker\SeoCore\Model;
 
-use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
 use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
+use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
 
 /**
  * This file is part of Seo-Core library of SeoTracker project
