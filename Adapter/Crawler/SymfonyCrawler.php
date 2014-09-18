@@ -1,4 +1,14 @@
 <?php
+
+/**
+ * This file is part of the Seo Core package
+ *
+ * Copyright (c) 2014 Mickaël Andrieu
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace SeoTracker\SeoCore\Adapter\Crawler;
 
 use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
@@ -19,10 +29,10 @@ class SymfonyCrawler extends Crawler implements CrawlerInterface
     }
 
     /**
-	 * set HTML content to be parsed by
-	 *
-	 * @return self CrawlerInterface
-	 */
+     * set HTML content to be parsed by
+     *
+     * @return self CrawlerInterface
+     */
     public function setContent($HTMLcontent)
     {
         $this->clear();
@@ -37,20 +47,20 @@ class SymfonyCrawler extends Crawler implements CrawlerInterface
     }
 
     /**
-	 * Query HTML content from CSS selector
-	 *
-	 * @return DOMElement $node HTML Element
-	 */
+     * Query HTML content from CSS selector
+     *
+     * @return DOMElement $node HTML Element
+     */
     public function get($cssSelector)
     {
         return $this->filter($cssSelector);
     }
 
     /**
-	 * Query HTML content from XPath selector
-	 *
-	 * @return DOMElement $node HTML Element
-	 */
+     * Query HTML content from XPath selector
+     *
+     * @return DOMElement $node HTML Element
+     */
     public function getXPath($XPathSelector)
     {
         return $this->filterXPath($XPathSelector);

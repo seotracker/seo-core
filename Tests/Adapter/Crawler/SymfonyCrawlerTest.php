@@ -1,4 +1,14 @@
 <?php
+
+/**
+ * This file is part of the Seo Core package
+ *
+ * Copyright (c) 2014 Mickaël Andrieu
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace SeoTracker\SeoCore\Tests\Adapter\Crawler;
 
 use SeoTracker\SeoCore\Adapter\Crawler\SymfonyCrawler;
