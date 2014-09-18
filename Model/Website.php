@@ -30,7 +30,9 @@ class Website implements WebsiteInterface
 
     public function getTitle()
     {
-        return $this->title = $this->crawler->getXPath('//title')->text();
+        $this->title = $this->crawler->getXPath('//title')->text();
+
+        return $this->title;
     }
 
     public function getMetas()
