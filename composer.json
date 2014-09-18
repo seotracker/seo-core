@@ -1,0 +1,30 @@
+{
+    "name": "seotracker/seocore",
+    "description": "seo-core library for php",
+    "keywords": ["SEO", "Website", "Scrapper", "Search engine", "Crawler", "Google"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+    {
+        "name": "Mickaël Andrieu",
+        "email": "mickael.andrieu@hotmail.fr"
+    }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/dom-crawler": "2.3.*",
+        "symfony/css-selector": "2.3.*"
+    },
+    "suggest": {
+        "ext-curl": "For usage of Curl adapter",
+    },
+    "autoload": {
+        "psr-4": {"SeoTracker\\SeoCore\\": ""}
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
