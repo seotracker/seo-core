@@ -4,6 +4,11 @@ Seo-core library
 Seo-core library was extracted from Seo-Tracker platform.
 This is a common way to deal with websites, search engines and scrappers.
 
+Note that this library is still a work in progress.
+
+[![Build Status](https://api.travis-ci.org/seotracker/seo-core.svg?branch=master)](https://travis-ci.org/seotracker/seo-core)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/2c440481-3f27-4b15-a635-e7d701ac1ae4/small.png)](https://insight.sensiolabs.com/projects/2c440481-3f27-4b15-a635-e7d701ac1ae4)
+
 
 1) Websites
 -----------
@@ -51,7 +56,7 @@ A crawler is an object used to query and manipulate HTML DOM.
 
 Seo-core offers an interface and his Symfony2-Component based implementation.
 
-See ``CrawlerInterface`` and implementation in ``Adapeter\Crawler`` folder.
+See ``CrawlerInterface`` and implementation in ``Adapter\Crawler`` folder.
 
 
 5) Example
@@ -59,24 +64,22 @@ See ``CrawlerInterface`` and implementation in ``Adapeter\Crawler`` folder.
 
 ```php
 <?php
+use SeoTracker\SeoCore\Adapter\Crawler\SymfonyCrawler;
 use SeoTracker\SeoCore\Adapter\Scrapper\CurlScrapper;
 use SeoTracker\SeoCore\Model\GoogleEngine;
 use SeoTracker\SeoCore\Model\Website;
 
-
+$crawler   = new SymfonyCrawler();
 $scrapper = new CurlScrapper();
-$GoogleEngine = new GoogleEngine($scrapper);
+$GoogleEngine = new GoogleEngine($scrapper, $crawler);
 
 $website = $GoogleEngine->getWebsite('http://seo-tracker.net');
 
 // position of website in Google
-$position = $GoogleEngine->getPosition($website);
+$position = $GoogleEngine->getPosition('seo tools online platform', $website); // 1
 
 // title of website
-$title = $website->getTitle();
-
-// keywords of website
-$keywords = $website->getKeywords(); // ['keyword1' => x, 'keyword2' => y, ...]
+$title = $website->getTitle(); // 'SeoTracker : A SEO tools suite'
 
 ?>
 ```
