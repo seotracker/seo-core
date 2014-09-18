@@ -1,5 +1,5 @@
 Seo-core library
-==========
+================
 
 Seo-core library was extracted from Seo-Tracker platform.
 This is a common way to deal with websites, search engines and scrappers.
@@ -11,25 +11,25 @@ This is a common way to deal with websites, search engines and scrappers.
 
 
 1) Websites
----------------
+-----------
 
 Website is an object representation of a real website.
 A website **MUST** have a HTML content.
 
-A website object can return useful datas for SEO like:
+A website object can return useful data for SEO like:
 
 * Website title
-* Website metadatas
-* Website keywords occurences and proportions
+* Website metadata
+* Website keywords occurrences and proportions
 * Website location url
 
-See ``WebsiteInterface`` for more informations about it.
+See ``WebsiteInterface`` for more information about it.
 
 2) SearchEngines
------------------------
+----------------
 
 SearchEngine is an object representation of a real search engine.
-A search engine **SHOULD USE** a scrapper to get informations from internet network.
+A search engine **SHOULD USE** a scrapper to get information from internet network.
 
 A search engine can return useful datas for SEO like:
 
@@ -37,10 +37,10 @@ A search engine can return useful datas for SEO like:
 * Website position in the concerned search engine for a needle
 * All backlinks for a website in this search engine
 
-See ``SearchEngineInterface`` for more informations about it.
+See ``SearchEngineInterface`` for more information about it.
 
 3) Scrappers
------------------
+------------
 
 A scrapper is an object used to get HTML from internet network.
 
@@ -50,7 +50,7 @@ which accept at least 1 argument: an url location.
 See ``ScrapperInterface`` and implementations in ``Adapter\Scrapper`` folder
 
 4) Crawlers
----------------
+-----------
 
 A crawler is an object used to query and manipulate HTML DOM.
 
@@ -60,7 +60,7 @@ See ``CrawlerInterface`` and implementation in ``Adapter\Crawler`` folder.
 
 
 5) Example
----------------
+----------
 
 ```php
 <?php

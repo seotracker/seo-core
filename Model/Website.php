@@ -1,8 +1,18 @@
 <?php
+
+/**
+ * This file is part of the Seo Core package
+ *
+ * Copyright (c) 2014 Mickaël Andrieu
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace SeoTracker\SeoCore\Model;
 
-use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
 use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
+use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
 
 /**
  * This file is part of Seo-Core library of SeoTracker project
