@@ -18,7 +18,7 @@ use Exception;
  *
  * @author Mickaël Andrieu <mickael.andrieu@hotmail.fr>
  */
-class AdapterNonAvailableException extends Exception
+class AdapterNotAvailableException extends Exception
 {
     /**
      * Construct

@@ -62,12 +62,4 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1, $googleEngine->getPosition('google', $website));
         $this->assertEquals(0, $googleEngine->getPosition('foo', $website));
     }
-
-    public function testMicroAndMetaDatasOfWebsite()
-    {
-         $location = 'http://www.mickael-andrieu.com/';
-         $website = new Website($this->crawler, $this->scrapper->get($location), $location);
-
-         var_dump($website->getMetas(), $website->getMicroDatas());
-    }
 }

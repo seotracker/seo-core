@@ -15,7 +15,6 @@ use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
 use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
 use linclark\MicrodataPHP\MicrodataPhp;
 
-
 /**
  * This file is part of Seo-Core library of SeoTracker project
  *
@@ -51,10 +50,10 @@ class Website implements WebsiteInterface
     public function getMetas()
     {
         $this->metas = [];
-        if($this->checkExists("//head/meta[@name='description']/@content")) {
+        if ($this->checkExists("//head/meta[@name='description']/@content")) {
             $this->metas['description'] = $this->crawler->getXPath("//head/meta[@name='description']/@content")->text();
         }
-        if($this->checkExists("//head/meta[@name='keywords']/@content")) {
+        if ($this->checkExists("//head/meta[@name='keywords']/@content")) {
             $this->metas['keywords'] = $this->crawler->getXPath("//head/meta[@name='keywords']/@content")->text();
         }
 

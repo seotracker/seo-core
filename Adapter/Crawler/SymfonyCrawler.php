@@ -12,6 +12,7 @@
 namespace SeoTracker\SeoCore\Adapter\Crawler;
 
 use DOMElement;
+use SeoTracker\SeoCore\Exception\DependencyNotAvailableException;
 use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -52,11 +53,15 @@ class SymfonyCrawler extends Crawler implements CrawlerInterface
      *
      * @param string $cssSelector CSS Selector
      *
-     * @return DOMElement $node HTML Element
+     * @return DOMElement $node HTML Element or Exception
      */
     public function get($cssSelector)
     {
-        return $this->filter($cssSelector);
+        if (class_exists('Symfony\\Component\\CssSelector\\CssSelector')) {
+            return $this->filter($cssSelector);
+        }
+
+        throw new DependencyNotAvailableException('Symfony CSS Selector');
     }
 
     /**

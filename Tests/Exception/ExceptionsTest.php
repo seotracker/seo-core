@@ -16,15 +16,27 @@ use SeoTracker\SeoCore\Exception as Exceptions;
 class ExceptionsTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers SeoTracker\SeoCore\Exception\AdapterNonAvailableException
+     * @covers SeoTracker\SeoCore\Exception\AdapterNotAvailableException
      */
-    public function testAdapterNonAvailableException()
+    public function testAdapterNotAvailableException()
     {
-        $e = new Exceptions\AdapterNonAvailableException();
+        $e = new Exceptions\AdapterNotAvailableException();
         $this->assertEquals('The  adapter is unavailable, did you have installed the related dependencies ?', $e->getMessage());
 
-        $e = new Exceptions\AdapterNonAvailableException('Curl');
+        $e = new Exceptions\AdapterNotAvailableException('Curl');
         $this->assertEquals('The Curl adapter is unavailable, did you have installed the related dependencies ?', $e->getMessage());
+    }
+
+    /**
+     * @covers SeoTracker\SeoCore\Exception\DependencyNotAvailableException
+     */
+    public function testDependencyNotAvailableException()
+    {
+        $e = new Exceptions\DependencyNotAvailableException();
+        $this->assertEquals('Undefined dependency is unavailable, did you have installed it ?', $e->getMessage());
+
+        $e = new Exceptions\DependencyNotAvailableException('Symfony CSS Selector');
+        $this->assertEquals('Symfony CSS Selector is unavailable, did you have installed it ?', $e->getMessage());
     }
 
     /**
