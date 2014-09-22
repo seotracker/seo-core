@@ -66,18 +66,32 @@ See ``CrawlerInterface`` and implementation in ``Adapter\Crawler`` folder.
 <?php
 use SeoTracker\SeoCore\Adapter\Crawler\SymfonyCrawler;
 use SeoTracker\SeoCore\Adapter\Scrapper\CurlScrapper;
-use SeoTracker\SeoCore\Model\GoogleEngine;
+use SeoTracker\SeoCore\Model\GoogleFranceEngine;
 use SeoTracker\SeoCore\Model\Website;
 
 $crawler   = new SymfonyCrawler();
 $scrapper = new CurlScrapper();
-$GoogleEngine = new GoogleEngine($scrapper, $crawler);
+$googleEngine = new GoogleFranceEngine($scrapper, $crawler);
 
-$website = $GoogleEngine->getWebsite('http://seo-tracker.net');
+$website = $googleEngine->getWebsite('http://seo-tracker.net');
 
 // position of website in Google
-$position = $GoogleEngine->getPosition('seo tools online platform', $website); // 1
+$position = $googleEngine->getPosition('seo tools online platform', $website); // 1
 
 // title of website
 $title = $website->getTitle(); // 'SeoTracker : A SEO tools suite'
+
+// metas of website
+$metas = $googleEngine->getMetas(); // ['description' => 'Seo Tracker est une plateforme de suivi et d'optimisation [..]']
+
+// microdatas of website
+$microDatas = $googleEngine->getMicroDatas();
+/**
+ * [0=>
+ *     'type' =>
+ *         [0 => 'http://www.schema.org/CreativeWork']
+ *     ,
+ *     'properties' => [...]]
+ * ]
+ **/
 ```
