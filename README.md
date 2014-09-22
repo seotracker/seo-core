@@ -8,6 +8,8 @@ This is a common way to deal with websites, search engines and scrappers.
 
 [![Build Status](https://api.travis-ci.org/seotracker/seo-core.svg?branch=master)](https://travis-ci.org/seotracker/seo-core)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/2c440481-3f27-4b15-a635-e7d701ac1ae4/small.png)](https://insight.sensiolabs.com/projects/2c440481-3f27-4b15-a635-e7d701ac1ae4)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/seotracker/seo-core/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/seotracker/seo-core/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/seotracker/seo-core/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/seotracker/seo-core/?branch=master)
 
 
 1) Websites
