@@ -35,13 +35,19 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
     public function testScrapWebsiteAndReturnCorrectWebsite()
     {
-        $location = 'http://www.seo-tracker.net';
-        $website = new Website($this->crawler, $this->scrapper->get($location), $location);
+        $location = 'http://sample.seocore';
+        $content = file_get_contents('./Tests/Fixtures/sample.html');
+        $description = "seo-core is a common way to deal with websites, search engines, crawlers and scrappers.";
+        $keywords = 'SEO, library, PHP';
+        $website = new Website($this->crawler, $content, $location);
 
-        $this->assertEquals('SeoTracker : A SEO tools suite', $website->getTitle());
-        $this->assertEquals($this->scrapper->get($location), $website->getContent());
+        $this->assertEquals('seo-core, a library for SEO', $website->getTitle());
+        $this->assertEquals($content, $website->getContent());
 
         $this->assertInstanceOf('\DateTime', $website->getDate());
+        $this->assertEquals($description, $website->getMetas()['description']);
+        $this->assertEquals($keywords, $website->getMetas()['keywords']);
+        $this->assertContains('seo-core is a PHP library',$website->getMicroDatas()[0]['properties']['description'][0]); // need more tests here
     }
 
     public function testGoogleSearchReturnWebsiteCollection()
@@ -56,7 +62,8 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
     public function testGetPositionOnWebsiteReturnInteger()
     {
         $location = 'http://www.google.fr';
-        $website = new Website($this->crawler, $this->scrapper->get($location), $location);
+        $content = file_get_contents('./Tests/Fixtures/google.html');
+        $website = new Website($this->crawler, $content, $location);
         $googleEngine = new GoogleFranceEngine($this->scrapper, $this->crawler);
 
         $this->assertEquals(1, $googleEngine->getPosition('google', $website));

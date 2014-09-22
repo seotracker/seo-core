@@ -17,8 +17,7 @@
         "symfony/dom-crawler": "2.3.*"
     },
     "suggest": {
-        "ext-curl": "For usage of Curl adapter",
-
+        "ext-curl": "For usage of Curl adapter"
     },
     "autoload": {
         "psr-4": {"SeoTracker\\SeoCore\\": ""}

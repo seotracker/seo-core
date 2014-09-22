@@ -33,7 +33,6 @@ class CurlScrapper implements ScrapperInterface
     public function get($location)
     {
         if (!$this->isOk()) {
-
             throw new NotImplementedException('ext-curl');
         }
 

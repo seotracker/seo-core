@@ -11,6 +11,7 @@
 
 namespace SeoTracker\SeoCore\Model;
 
+use SeoTracker\SeoCore\Exception\NotImplementException;
 use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
 use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
 use linclark\MicrodataPHP\MicrodataPhp;
@@ -62,6 +63,8 @@ class Website implements WebsiteInterface
 
     public function getKeywords()
     {
+        throw new NotImplementException();
+
         return $this->keywords;
     }
 
