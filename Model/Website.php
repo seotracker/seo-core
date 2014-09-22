@@ -26,7 +26,6 @@ class Website implements WebsiteInterface
 {
     private $content;
     private $date;
-    private $keywords;
     private $location;
     private $metas;
     private $microDatas;
@@ -64,8 +63,6 @@ class Website implements WebsiteInterface
     public function getKeywords()
     {
         throw new NotImplementException();
-
-        return $this->keywords;
     }
 
     public function getContent()
