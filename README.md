@@ -82,16 +82,18 @@ $position = $googleEngine->getPosition('seo tools online platform', $website); /
 $title = $website->getTitle(); // 'SeoTracker : A SEO tools suite'
 
 // metas of website
-$metas = $googleEngine->getMetas(); // ['description' => 'Seo Tracker est une plateforme de suivi et d'optimisation [..]']
+$metas = $googleEngine->getMetas();
+// ['description' => 'Seo Tracker est une plateforme de suivi et d'optimisation [..]']
 
 // microdatas of website
 $microDatas = $googleEngine->getMicroDatas();
 /**
- * [0=>
+ * [0 =>
  *     'type' =>
  *         [0 => 'http://www.schema.org/CreativeWork']
  *     ,
  *     'properties' => [...]]
- * ]
+ * ],
+ * [ 1 => [..] ]
  **/
 ```
