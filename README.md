@@ -98,4 +98,13 @@ $microDatas = $googleEngine->getMicroDatas();
  * ],
  * [ 1 => [..] ]
  **/
+
+// backlinks of website location in search engine
+$backlinks = $googleEngine->getBacklinks($website);
+/**
+ * [
+ *     0 => 'http://seo-core.com',
+ *     1 => 'http://otherwebsite.backlink'
+ * ]
+ **/
 ```
