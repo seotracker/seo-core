@@ -12,7 +12,6 @@
 namespace SeoTracker\SeoCore\Model;
 
 use SeoTracker\SeoCore\Collection\WebsiteCollection;
-use SeoTracker\SeoCore\Exception\NotImplementedException;
 use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
 use SeoTracker\SeoCore\Interfaces\ScrapperInterface;
 use SeoTracker\SeoCore\Interfaces\SearchEngineInterface;
@@ -114,7 +113,20 @@ class GoogleEngine implements SearchEngineInterface
      */
     public function getBacklinks(WebsiteInterface $website)
     {
-        throw new NotImplementedException();
+        $backlinks = [];
+        $websiteLocation = urlencode($website->getLocation());
+        $url = $this->getRootUrl().'q=link:"'. $websiteLocation . '"-site:'. $websiteLocation .'&num=100';
+
+        $crawler = $this->crawler->setContent($this->scrapper->get($url));
+        $links   = $crawler->get('#res li.g > h3 > a');
+
+        foreach ($links as $position => $link) {
+            $fullLocation = $link->getAttribute('href');
+            $location = $this->cleanUrl(substr($fullLocation, 7));
+            $backlinks[] = $location;
+        }
+
+        return $backlinks;
     }
 
     private function getWebsite($location)

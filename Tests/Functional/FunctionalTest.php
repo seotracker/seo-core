@@ -69,4 +69,14 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1, $googleEngine->getPosition('google', $website));
         $this->assertEquals(0, $googleEngine->getPosition('foo', $website));
     }
+
+    public function testGetBacklinksReturnArrayOfLinks()
+    {
+        $location = 'http://www.google.fr';
+        $content = file_get_contents('./Tests/Fixtures/google.html');
+        $googleEngine = new GoogleFranceEngine($this->scrapper, $this->crawler);
+        $website = new Website($this->crawler, $content, $location);
+
+        $this->assertEquals(100, count($googleEngine->getBacklinks($website)));
+    }
 }
