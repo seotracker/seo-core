@@ -15,6 +15,7 @@ use SeoTracker\SeoCore\Collection\WebsiteCollection;
 use SeoTracker\SeoCore\Exception\NotImplementedException;
 use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
 use SeoTracker\SeoCore\Interfaces\ScrapperInterface;
+use SeoTracker\SeoCore\Model\GoogleEngine;
 use SeoTracker\SeoCore\Interfaces\SearchEngineInterface;
 use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
 
@@ -24,106 +25,16 @@ use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
  * @author Mickaël Andrieu <mickael.andrieu@hotmail.fr>
  *
  */
-class GoogleFranceEngine implements SearchEngineInterface
+class GoogleFranceEngine extends GoogleEngine implements SearchEngineInterface
 {
-    private $crawler;
-    private $locale;
-    private $name;
-    private $scrapper;
-
-    public function __construct(ScrapperInterface $scrapper, CrawlerInterface $crawler, $name = null, $locale = null)
+    public function __construct(ScrapperInterface $scrapper, CrawlerInterface $crawler, $name = 'Google Search Engine France', $locale = 'fr')
     {
-        $this->crawler  = $crawler;
-        $this->locale   = $locale;
-        $this->name     = $name;
-        $this->scrapper = $scrapper;
+        parent::__construct($scrapper, $crawler, $name, $locale);
     }
 
-    public function setLocale($locale)
+    public function getTopLevelDomain()
     {
-        $this->locale = $locale;
-
-        return $this;
-    }
-
-    public function getLocale()
-    {
-        return !is_null($this->locale) ? $this->locale : 'fr';
-    }
-
-    public function getName()
-    {
-        return !is_null($this->name) ? $this->name : 'Google Search Engine France';
-    }
-
-    public function getRootUrl()
-    {
-        return 'https://www.google.fr/search?';
-    }
-
-    /**
-     * @return WebsiteCollection $websites a collection a websites
-     */
-    public function getWebsites($needle, $limit)
-    {
-        $url = $this->getRootUrl()."q=$needle&gbv=1&num=$limit";
-
-        $content = $this->scrapper->get($url);
-        $crawler = $this->crawler->setContent($content);
-        $links   = $crawler->get('#res li.g > h3 > a');
-
-        $websites = new WebsiteCollection();
-
-        foreach ($links as $position => $link) {
-            $fullLocation = $link->getAttribute('href');
-            $location = $this->cleanUrl(substr($fullLocation, 7));
-            $websites->add($this->getWebsite($location));
-        }
-
-        return $websites;
-    }
-
-    /**
-     * @return integer $position the position of Website in search engine
-     */
-    public function getPosition($needle, WebsiteInterface $website)
-    {
-        $url = $this->getRootUrl()."q=$needle&gbv=1&num=200";
-
-        $crawler = $this->crawler->setContent($this->scrapper->get($url));
-        $links   = $crawler->get('#res li.g > h3 > a');
-
-        foreach ($links as $position => $link) {
-            $fullLocation = $link->getAttribute('href');
-            $location = $this->cleanUrl(substr($fullLocation, 7));
-            if ($website->getLocation() == $location || ($website->getLocation().'/') == $location) {
-                return $position +1;
-            }
-        }
-
-        return 0;
-    }
-
-    /**
-     * @return array $backlinks array of backlinks
-     */
-    public function getBacklinks(WebsiteInterface $website)
-    {
-        throw new NotImplementedException();
-    }
-
-    private function getWebsite($location)
-    {
-        return new Website($this->crawler, $this->scrapper->get($location), $location);
-    }
-
-    private function cleanUrl($url)
-    {
-        $position = strpos($url, '&sa=');
-        if ($position === false) {
-            return $url;
-        } else {
-            return substr($url, 0, $position);
-        }
+        return '.fr';
     }
 }
+

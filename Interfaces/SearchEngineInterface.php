@@ -20,6 +20,7 @@ interface SearchEngineInterface
 {
     public function getName();
     public function getLocale();
+    public function getTopLevelDomain();
     public function getRootUrl();
     public function getWebsites($needle, $limit);
     public function getPosition($needle, WebsiteInterface $website);
