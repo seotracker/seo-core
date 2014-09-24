@@ -129,7 +129,7 @@ class GoogleEngine implements SearchEngineInterface
         return $backlinks;
     }
 
-    private function getWebsite($location)
+    public function getWebsite($location)
     {
         return new Website($this->crawler, $this->scrapper->get($location), $location);
     }
