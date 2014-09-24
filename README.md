@@ -21,8 +21,8 @@ A website **MUST** have a HTML content.
 A website object can return useful data for SEO like:
 
 * Website title
-* Website metadata
-* Website keywords occurrences and proportions
+* Website metadata & rich contents
+* Website keywords occurrences and proportions (Not implemented)
 * Website location url
 
 See ``WebsiteInterface`` for more information about it.
@@ -69,7 +69,6 @@ See ``CrawlerInterface`` and implementation in ``Adapter\Crawler`` folder.
 use SeoTracker\SeoCore\Adapter\Crawler\SymfonyCrawler;
 use SeoTracker\SeoCore\Adapter\Scrapper\CurlScrapper;
 use SeoTracker\SeoCore\Model\GoogleFranceEngine;
-use SeoTracker\SeoCore\Model\Website;
 
 $crawler   = new SymfonyCrawler();
 $scrapper = new CurlScrapper();
