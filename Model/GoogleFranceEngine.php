@@ -11,8 +11,6 @@
 
 namespace SeoTracker\SeoCore\Model;
 
-use SeoTracker\SeoCore\Collection\WebsiteCollection;
-use SeoTracker\SeoCore\Exception\NotImplementedException;
 use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
 use SeoTracker\SeoCore\Interfaces\ScrapperInterface;
 use SeoTracker\SeoCore\Model\GoogleEngine;
