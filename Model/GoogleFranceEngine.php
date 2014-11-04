@@ -15,7 +15,6 @@ use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
 use SeoTracker\SeoCore\Interfaces\ScrapperInterface;
 use SeoTracker\SeoCore\Model\GoogleEngine;
 use SeoTracker\SeoCore\Interfaces\SearchEngineInterface;
-use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
 
 /**
  * This file is part of Seo-Core library of SeoTracker project

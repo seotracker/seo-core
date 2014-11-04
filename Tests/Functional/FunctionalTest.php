@@ -66,7 +66,7 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
         $website = new Website($this->crawler, $content, $location);
         $googleEngine = new GoogleFranceEngine($this->scrapper, $this->crawler);
 
-        $this->assertEquals(1, $googleEngine->getPosition('google', $website));
+        $this->assertGreaterThanOrEqual(1, $googleEngine->getPosition('google', $website));
         $this->assertEquals(0, $googleEngine->getPosition('foo', $website));
     }
 
