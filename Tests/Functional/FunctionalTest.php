@@ -55,7 +55,7 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
         $googleEngine = new GoogleFranceEngine($this->scrapper, $this->crawler);
 
         $websites = $googleEngine->getWebsites('ESGI', 10);
-        $this->assertEquals($websites->count(), 8);
+        $this->assertGreaterThanOrEqual(5, $websites->count());
         $this->assertInstanceOf('SeoTracker\SeoCore\Collection\WebsiteCollection', $websites);
     }
 
