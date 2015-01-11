@@ -3,7 +3,7 @@
 /**
  * This file is part of the Seo Core package
  *
- * Copyright (c) 2014 Mickaël Andrieu
+ * Copyright (c) 2014 - 2015 Mickaël Andrieu
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,6 +12,7 @@
 namespace SeoTracker\SeoCore\Collection;
 
 use ArrayAccess;
+
 use SeoTracker\SeoCore\Interfaces\WebsiteInterface;
 
 /**

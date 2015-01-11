@@ -3,7 +3,7 @@
 /**
  * This file is part of the Seo Core package
  *
- * Copyright (c) 2014 Mickaël Andrieu
+ * Copyright (c) 2014 - 2015 Mickaël Andrieu
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,9 +12,10 @@
 namespace SeoTracker\SeoCore\Adapter\Crawler;
 
 use DOMElement;
+use Symfony\Component\DomCrawler\Crawler;
+
 use SeoTracker\SeoCore\Exception\DependencyNotAvailableException;
 use SeoTracker\SeoCore\Interfaces\CrawlerInterface;
-use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * This file is part of Seo-Core library of SeoTracker project
