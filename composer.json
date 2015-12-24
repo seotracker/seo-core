@@ -13,8 +13,8 @@
     "require": {
         "php": ">=5.4.4",
         "linclark/microdata-php": "2.0.2",
-        "symfony/css-selector": "~2.3",
-        "symfony/dom-crawler": "~2.3"
+        "symfony/css-selector": "^2.3|^3.0",
+        "symfony/dom-crawler": "^2.3|^3.0"
     },
     "suggest": {
         "ext-curl": "For usage of Curl adapter"
