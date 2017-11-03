@@ -30,6 +30,8 @@ class GoogleEngine implements SearchEngineInterface
     private $name;
     private $scrapper;
 
+    const LINK_SELECTOR = "#res div.g h3 > a";
+
     public function __construct(ScrapperInterface $scrapper, CrawlerInterface $crawler, $name = null, $locale = null)
     {
         $this->crawler  = $crawler;
@@ -74,7 +76,7 @@ class GoogleEngine implements SearchEngineInterface
 
         $content = $this->scrapper->get($url);
         $crawler = $this->crawler->setContent($content);
-        $links   = $crawler->get('#res li.g > h3 > a');
+        $links   = $crawler->get(self::LINK_SELECTOR);
 
         $websites = new WebsiteCollection();
 
@@ -95,7 +97,7 @@ class GoogleEngine implements SearchEngineInterface
         $url = $this->getRootUrl()."q=$needle&gbv=1&num=200";
 
         $crawler = $this->crawler->setContent($this->scrapper->get($url));
-        $links   = $crawler->get('#res li.g > h3 > a');
+        $links   = $crawler->get(self::LINK_SELECTOR);
 
         foreach ($links as $position => $link) {
             $fullLocation = $link->getAttribute('href');
@@ -118,7 +120,7 @@ class GoogleEngine implements SearchEngineInterface
         $url = $this->getRootUrl().'q=link:"'. $websiteLocation . '"-site:'. $websiteLocation .'&num=100';
 
         $crawler = $this->crawler->setContent($this->scrapper->get($url));
-        $links   = $crawler->get('#res li.g > h3 > a');
+        $links   = $crawler->get(self::LINK_SELECTOR);
 
         foreach ($links as $position => $link) {
             $fullLocation = $link->getAttribute('href');

@@ -61,7 +61,7 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
     public function testGetPositionOnWebsiteReturnInteger()
     {
-        $location = 'http://www.google.fr';
+        $location = 'https://www.google.fr';
         $content = file_get_contents('./Tests/Fixtures/google.html');
         $website = new Website($this->crawler, $content, $location);
         $googleEngine = new GoogleFranceEngine($this->scrapper, $this->crawler);
@@ -72,11 +72,11 @@ class FunctionalTest extends \PHPUnit_Framework_TestCase
 
     public function testGetBacklinksReturnArrayOfLinks()
     {
-        $location = 'http://www.google.fr';
+        $location = 'https://www.google.fr';
         $content = file_get_contents('./Tests/Fixtures/google.html');
         $googleEngine = new GoogleFranceEngine($this->scrapper, $this->crawler);
         $website = new Website($this->crawler, $content, $location);
 
-        $this->assertEquals(100, count($googleEngine->getBacklinks($website)));
+        $this->assertGreaterThan(30, count($googleEngine->getBacklinks($website)));
     }
 }
