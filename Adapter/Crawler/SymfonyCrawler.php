@@ -58,7 +58,7 @@ class SymfonyCrawler extends Crawler implements CrawlerInterface
      */
     public function get($cssSelector)
     {
-        if (class_exists('Symfony\\Component\\CssSelector\\CssSelector')) {
+        if (class_exists('Symfony\\Component\\CssSelector\\CssSelectorConverter')) {
             return $this->filter($cssSelector);
         }
 
